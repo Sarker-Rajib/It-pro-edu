@@ -7,12 +7,20 @@ export const routes = createBrowserRouter([
       element: <Main></Main>,
       children: [
          {
+            path: '/',
+            element: <>home</>
+         },
+         {
             path: '/home',
             element: <>home</>
          },
          {
             path: '/courses',
             element: <>courses</>
+         },
+         {
+            path: '/faq',
+            element: <>FAQ</>
          },
          {
             path: '/blog',
@@ -33,8 +41,9 @@ export const routes = createBrowserRouter([
       element: 
       <div className="d-flex align-items-center justify-content-center vh-100 bg-warning w-100">
          <div className="shadow border border-danger p-3 rounded bg-light text-center">
-            <h2>The Route You are Trying to access is not available</h2>
-            <p>Back To <Link to="/home">Home</Link> </p>
+            <h1>404</h1>
+            <h2>The Route/page You are Trying to access is not available</h2>
+            <p>Back To <Link className="fs-5 text-info" to="/home">Home</Link> </p>
          </div>
       </div>
    }
