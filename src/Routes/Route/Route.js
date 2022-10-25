@@ -5,6 +5,7 @@ import Home from '../../Pages/Home/Home';
 import Login from '../../Components/Login/Login';
 import Register from '../../Components/Register/Register';
 import Blog from '../../Pages/Blog/Blog';
+import Faq from '../../Components/Faq/Faq';
 
 export const routes = createBrowserRouter([
    {
@@ -25,7 +26,7 @@ export const routes = createBrowserRouter([
          },
          {
             path: '/faq',
-            element: <>FAQ</>
+            element: <Faq></Faq>
          },
          {
             path: '/blog',

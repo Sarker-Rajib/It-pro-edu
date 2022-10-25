@@ -9,11 +9,14 @@ import { Button } from 'react-bootstrap';
 
 const Header = () => {
    const [theme, setTheme] = useState("light-theme");
+   const[mode, setMode] = useState('Dark Mode');
    const toogleTheme = () => {
       if (theme === "light-theme") {
          setTheme("dark-theme");
+         setMode("Light Mode");
       } else {
          setTheme("light-theme");
+         setMode("Dark Mode");
       }
    }
 
@@ -35,7 +38,7 @@ const Header = () => {
                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav className="ms-auto">
-                     <Button onClick={toogleTheme} className="p-0 px-2 me-2">Toogle</Button>
+                     <Button onClick={toogleTheme} className="p-0 px-2 me-2">{mode}</Button>
                      <Link to="/home">Home</Link>
                      <Link to="/courses">Courses</Link>
                      <Link to="/faq">FAQ</Link>

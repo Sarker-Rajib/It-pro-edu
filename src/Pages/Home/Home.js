@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import banneer from '../../assets/Images/banneer.jpg'
 import './Home.css';
 
 
@@ -22,7 +23,7 @@ const Home = () => {
                      </Link>
                   </Col>
                   <Col md={6}>
-                     {/* <img src={banneer} alt={banneer} className="img-fluid" /> */}
+                     <img src={banneer} alt={banneer} className="img-fluid" />
                   </Col>
                </Row>
             </div>
