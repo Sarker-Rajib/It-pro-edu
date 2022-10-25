@@ -8,17 +8,36 @@ import { AuthContext } from '../../Contexts/Authentication/AuthProvider';
 
 const Login = () => {
    const [accepted, setAccepted] = useState(true);
-   // const {  } = useContext(AuthContext);
+   const [error, setError] = useState('');
+   const { login } = useContext(AuthContext);
 
    const handleCheck = (e) => {
       setAccepted(!e.target.checked)
    }
+
+   const handleSubmit = (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const email = form.email.value;
+      const password = form.password.value;
+
+      login(email, password)
+         .then((result) => {
+            const user = result.user;
+            console.log(user);
+         })
+         .catch((error) => {
+            console.error(error);
+            setError(error.message);
+         })
+   }
+
    return (
       <Container>
          <Row>
             <Col lg={6} className="m-auto">
                <div className="border card-bg mt-3 p-3 rounded">
-                  <Form className="w-100">
+                  <Form className="w-100" onSubmit={handleSubmit}>
                      <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control name="email" type="email" placeholder="Enter email" />
@@ -52,6 +71,7 @@ const Login = () => {
                   </div>
                   <div className="mt-3">
                      <p>New in this site ? <Link to="/register" className="text-info">Register Now</Link> </p>
+                     <p className="text-danger">{error}</p>
                   </div>
                </div>
             </Col>

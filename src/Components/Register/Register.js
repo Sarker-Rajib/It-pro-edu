@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/Authentication/AuthProvider';
 
 const Register = () => {
-   const { createUser } = useContext(AuthContext);
+   const { createUser, updateUserProfile } = useContext(AuthContext);
    const [accepted, setAccepted] = useState(true);
    const [error, setError] = useState('');
 
@@ -14,20 +14,33 @@ const Register = () => {
       setAccepted(!e.target.checked)
    }
 
+   // function for updating profile
+   const handleupdateUserProfile = (name, photoURL) => {
+      const profile = {
+         displayName: name,
+         photoURL: photoURL
+      }
+      updateUserProfile(profile)
+         .then(() => { })
+         .catch(error => console.error(error))
+   }
+
    const handleSubmit = (e) => {
       e.preventDefault();
-
       const form = e.target;
       const name = form.name.value;
       const email = form.email.value;
       const photoURL = form.photoURL.value;
       const password = form.password.value;
 
-      console.log(name, email, photoURL, password);
+      // console.log(name, email, photoURL, password);
       createUser(email, password)
          .then(result => {
             const user = result.user;
             console.log(user);
+            form.reset();
+            setError('');
+            handleupdateUserProfile(name, photoURL);
          })
          .catch((error) => {
             console.error(error);
