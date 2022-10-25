@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
+import { AuthContext } from '../../Contexts/Authentication/AuthProvider';
 
 const Login = () => {
+   const [accepted, setAccepted] = useState(true);
+   // const {  } = useContext(AuthContext);
+
+   const handleCheck = (e) => {
+      setAccepted(!e.target.checked)
+   }
    return (
       <Container>
          <Row>
@@ -22,9 +29,9 @@ const Login = () => {
                         <Form.Control name="password" type="password" placeholder="Password" />
                      </Form.Group>
                      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Check to confirm" />
+                        <Form.Check onClick={handleCheck} type="checkbox" label="Check to confirm" />
                      </Form.Group>
-                     <Button variant="primary" type="submit">
+                     <Button variant="primary" type="submit" disabled={accepted}>
                         Login
                      </Button>
                   </Form>
@@ -36,7 +43,7 @@ const Login = () => {
                            </Button>
                         </div>
                         <div className="col-lg-6">
-                           <Button className="w-100" variant="primary" type="submit">
+                           <Button className="w-100" variant="primary" type="submit" >
                               <FaGithub /> github Login
                            </Button>
                         </div>
