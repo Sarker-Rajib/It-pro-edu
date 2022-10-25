@@ -6,6 +6,7 @@ import Login from '../../Components/Login/Login';
 import Register from '../../Components/Register/Register';
 import Blog from '../../Pages/Blog/Blog';
 import Faq from '../../Components/Faq/Faq';
+import Courses from '../../Components/Courses/Courses';
 
 export const routes = createBrowserRouter([
    {
@@ -22,7 +23,10 @@ export const routes = createBrowserRouter([
          },
          {
             path: '/courses',
-            element: <>courses</>
+            element: <Courses></Courses>,
+            loader: async () => {
+               return fetch('http://localhost:5000/courses')
+             },
          },
          {
             path: '/faq',
