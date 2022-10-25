@@ -4,7 +4,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const CourseDetails = () => {
    const course = useLoaderData();
-   const { id, image_url, title, description } = course;
+   const { image_url, title, description } = course;
    return (
       <div className="container pt-3">
          <div className="course-card shadow rounded border border-rounded p-3">
@@ -13,7 +13,7 @@ const CourseDetails = () => {
                   <h6>Course Details :</h6>
                </div>
                <div>
-                  <Button variant="success">Print</Button>
+                  <Button variant="success">Download Pdf</Button>
                </div>
             </div>
             <h4>{title}</h4>

@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 const Login = () => {
    return (
@@ -28,15 +29,15 @@ const Login = () => {
                      </Button>
                   </Form>
                   <div className="mt-3">
-                     <div className="row">
+                     <div className="row gy-2">
                         <div className="col-lg-6">
-                           <Button className="w-100"variant="primary" type="submit">
-                              Login with Google
+                           <Button className="w-100" variant="primary" type="submit">
+                              <FaGoogle className='text-warning' /> Google Login
                            </Button>
                         </div>
                         <div className="col-lg-6">
                            <Button className="w-100" variant="primary" type="submit">
-                              Login with github
+                              <FaGithub /> github Login
                            </Button>
                         </div>
                      </div>

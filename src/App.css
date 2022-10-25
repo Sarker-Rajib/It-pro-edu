@@ -1,7 +1,7 @@
 .light-theme {
   background: #fff;
   --heading-color: #000;
-  --nav-bg: #b3b3b354;
+  --nav-bg: #eeeeeed5;
   --para-color: #000;
   --toggle-button-bg: #416570;
   --button-text-color: #fff;
@@ -19,7 +19,7 @@
   --button-text-color: #416570;
   --card-bg: #dcecd84f;
   --color-navlink: #b782fc;
-  --wrapper-bg: #2747836e;
+  --wrapper-bg: #2747838c;
 }
 
 h1,

@@ -6,17 +6,18 @@ import webMaster from './../../assets/Images/webMaster.png';
 import '../Header/Header.css';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import { FaSun, FaMoon } from 'react-icons/fa';
 
 const Header = () => {
    const [theme, setTheme] = useState("light-theme");
-   const[mode, setMode] = useState('Dark Mode');
+   const [mode, setMode] = useState(true);
    const toogleTheme = () => {
       if (theme === "light-theme") {
          setTheme("dark-theme");
-         setMode("Light Mode");
+         setMode(false);
       } else {
          setTheme("light-theme");
-         setMode("Dark Mode");
+         setMode(true);
       }
    }
 
@@ -36,10 +37,19 @@ const Header = () => {
                   alt="First slide"
                />
 
+               <Button onClick={toogleTheme} className="p-1 px-2 me-2 d-inline-block d-lg-none">
+                  {
+                     mode ? <FaMoon /> : <FaSun />
+                  }
+               </Button>
                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav className="ms-auto">
-                     <Button onClick={toogleTheme} className="p-0 px-2 me-2">{mode}</Button>
+                     <Button onClick={toogleTheme} className="p-0 px-2 me-2 d-none d-lg-inline-block">
+                        {
+                           mode ? <FaMoon /> : <FaSun />
+                        }
+                     </Button>
                      <Link to="/home">Home</Link>
                      <Link to="/courses">Courses</Link>
                      <Link to="/faq">FAQ</Link>
