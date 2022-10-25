@@ -1,16 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import webMaster from './../../assets/Images/webMaster.png';
 import '../Header/Header.css';
 import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 import { FaSun, FaMoon } from 'react-icons/fa';
+import { AuthContext } from '../../Contexts/Authentication/AuthProvider';
 
 const Header = () => {
    const [theme, setTheme] = useState("light-theme");
    const [mode, setMode] = useState(true);
+   const { user } = useContext(AuthContext);
+
+   console.log(user);
+
    const toogleTheme = () => {
       if (theme === "light-theme") {
          setTheme("dark-theme");
@@ -55,9 +60,10 @@ const Header = () => {
                      <Link to="/faq">FAQ</Link>
                      <Link to="/blog">Blog</Link>
                      {
-                        // user?.email ? 
-                        // <Image />
-                        // :
+                        user?.email ? 
+                        <span>{user?.email}</span>
+                        // <Image src={user.photoURL}/>
+                        :
                         <Link to="login">Login</Link>
                      }
                   </Nav>
