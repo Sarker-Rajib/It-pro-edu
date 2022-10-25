@@ -4,6 +4,7 @@ import Main from '../../Layouts/Main/Main';
 import Home from '../../Pages/Home/Home';
 import Login from '../../Components/Login/Login';
 import Register from '../../Components/Register/Register';
+import Blog from '../../Pages/Blog/Blog';
 
 export const routes = createBrowserRouter([
    {
@@ -28,7 +29,7 @@ export const routes = createBrowserRouter([
          },
          {
             path: '/blog',
-            element: <>blog</>
+            element: <Blog></Blog>
          },
          {
             path: '/login',
