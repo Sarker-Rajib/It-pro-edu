@@ -24,8 +24,9 @@ const Header = () => {
       document.body.className = theme;
    }, [theme]);
 
+
    return (
-      <header className="bg-nav">
+      <header className="bg-nav sticky-top">
          <Container >
             <Navbar className="d-flex align-items-center" collapseOnSelect expand="lg">
 
