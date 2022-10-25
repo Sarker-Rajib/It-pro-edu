@@ -60,11 +60,13 @@ const Header = () => {
                      <Link to="/faq">FAQ</Link>
                      <Link to="/blog">Blog</Link>
                      {
-                        user?.email ? 
-                        <span>{user?.email}</span>
-                        // <Image src={user.photoURL}/>
-                        :
-                        <Link to="login">Login</Link>
+                        user?.photoURL ?
+                           <Image src={user.photoURL} alt={user.name}
+                              className="square bg-primary rounded-circle" style={{ width: "50px", height: "50px" }}
+                           />
+                           // <Image src={user.photoURL}/>
+                           :
+                           <Link to="login">Login</Link>
                      }
                   </Nav>
                </Navbar.Collapse>

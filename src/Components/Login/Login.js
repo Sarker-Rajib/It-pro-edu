@@ -9,7 +9,7 @@ import { AuthContext } from '../../Contexts/Authentication/AuthProvider';
 const Login = () => {
    const [accepted, setAccepted] = useState(true);
    const [error, setError] = useState('');
-   const { login } = useContext(AuthContext);
+   const { login , setLoading} = useContext(AuthContext);
 
    const handleCheck = (e) => {
       setAccepted(!e.target.checked)
@@ -25,10 +25,15 @@ const Login = () => {
          .then((result) => {
             const user = result.user;
             console.log(user);
+            form.reset();
+            setError('');
          })
          .catch((error) => {
             console.error(error);
             setError(error.message);
+         })
+         .finally(() => {
+            setLoading(false);
          })
    }
 
