@@ -1,4 +1,4 @@
-.light-theme{
+.light-theme {
   background: #fff;
   --heading-color: #000;
   --nav-bg: #b3b3b354;
@@ -7,9 +7,10 @@
   --button-text-color: #fff;
   --card-bg: #4e75444b;
   --color-navlink: #7700ff;
+  --wrapper-bg: #ffd152d5;
 }
 
-.dark-theme{
+.dark-theme {
   background: #111b20;
   --heading-color: #fff;
   --nav-bg: #212b21;
@@ -18,27 +19,38 @@
   --button-text-color: #416570;
   --card-bg: #dcecd84f;
   --color-navlink: #b782fc;
+  --wrapper-bg: #2747836e;
 }
 
-h1, h2, h3, h4, h5, h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--heading-color);
 }
 
-p, label{
+p,
+label {
   color: var(--para-color);
 }
 
-.bg-nav{
+.bg-nav {
   background: var(--nav-bg);
 }
 
-#responsive-navbar-nav a{
+#responsive-navbar-nav a {
   color: var(--color-navlink);
   text-decoration: none;
   margin: 6px;
   font-size: 18px;
 }
 
-.card-bg{
+.card-bg {
   background: var(--card-bg);
+}
+
+.wrapper {
+  background: var(--wrapper-bg);
 }
