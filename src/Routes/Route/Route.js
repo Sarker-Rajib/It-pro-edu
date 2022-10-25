@@ -1,4 +1,5 @@
-import { createBrowserRouter, Link } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
+import Error404 from '../../Pages/Error404/Error404';
 import Main from '../../Layouts/Main/Main';
 
 export const routes = createBrowserRouter([
@@ -38,13 +39,6 @@ export const routes = createBrowserRouter([
    },
    {
       path: '*',
-      element: 
-      <div className="d-flex align-items-center justify-content-center vh-100 bg-warning w-100">
-         <div className="shadow border border-danger p-3 rounded bg-light text-center">
-            <h1>404</h1>
-            <h2>The Route/page You are Trying to access is not available</h2>
-            <p>Back To <Link className="fs-5 text-info" to="/home">Home</Link> </p>
-         </div>
-      </div>
+      element: <Error404></Error404>
    }
 ]);
