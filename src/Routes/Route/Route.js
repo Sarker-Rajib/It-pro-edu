@@ -7,8 +7,9 @@ import Register from '../../Components/Register/Register';
 import Blog from '../../Pages/Blog/Blog';
 import Faq from '../../Components/Faq/Faq';
 import Courses from '../../Components/Courses/Courses';
-import CourseDetails from '../../Components/Courses/CourseDetails';
 import CheckOut from '../../Pages/Checkout/CheckOut';
+import CourseDetails from '../../Components/CourseDetails/CourseDetails';
+import Course from '../../Components/Course/Course';
 
 export const routes = createBrowserRouter([
    {
@@ -21,7 +22,11 @@ export const routes = createBrowserRouter([
          },
          {
             path: '/home',
+            loader: async () => {
+               return fetch('http://localhost:5000/courses')
+            },
             element: <Home></Home>
+
          },
          {
             path: '/courses',
@@ -46,8 +51,11 @@ export const routes = createBrowserRouter([
             element: <Blog></Blog>
          },
          {
-            path: '/checkout',
-            element: <CheckOut></CheckOut>
+            path: '/checkout/:id',
+            element: <CheckOut></CheckOut>,
+            loader: async ({ params }) => {
+               return fetch(`http://localhost:5000/courses/${params.id}`)
+            },
          },
          {
             path: '/login',

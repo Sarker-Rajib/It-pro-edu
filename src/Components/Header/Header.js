@@ -12,7 +12,7 @@ import { AuthContext } from '../../Contexts/Authentication/AuthProvider';
 const Header = () => {
    const [theme, setTheme] = useState("light-theme");
    const [mode, setMode] = useState(true);
-   const { user } = useContext(AuthContext);
+   const { user, logOut } = useContext(AuthContext);
 
    console.log(user);
 
@@ -61,10 +61,16 @@ const Header = () => {
                      <Link to="/blog">Blog</Link>
                      {
                         user?.photoURL ?
-                           <Image src={user.photoURL} alt={user.name}
-                              className="square bg-primary rounded-circle" style={{ width: "50px", height: "50px" }}
-                           />
-                           // <Image src={user.photoURL}/>
+                           <>
+                              <Link onClick={logOut} to="/home">Log-out</Link>
+
+                              <Image
+                                 title={user?.name}
+                                 src={user.photoURL} alt={user.name}
+                                 className="square bg-primary rounded-circle"
+                                 style={{ width: "35px", height: "35px", marginLeft: "5px" }}
+                              />
+                           </>
                            :
                            <Link to="login">Login</Link>
                      }

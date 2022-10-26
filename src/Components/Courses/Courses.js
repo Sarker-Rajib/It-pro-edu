@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
-import Course from './Course';
+import { Link, useLoaderData } from 'react-router-dom';
+import Course from '../Course/Course';
 
 const Courses = () => {
    const courses = useLoaderData();
@@ -9,7 +9,7 @@ const Courses = () => {
       <Container className="pt-3">
          <h4>Courses We Provide -</h4>
          <Row>
-            <Col lg={8}>
+            <Col lg={9}>
                <Row className="gy-3">
                   {
                      courses.map((course) => <Course
@@ -19,8 +19,14 @@ const Courses = () => {
                   }
                </Row>
             </Col>
-            <Col lg={4}>
-               <h5>Description</h5>
+            <Col lg={3}>
+               <ol style={{listStyle: 'none'}}>
+                  {
+                     courses.map((course) => <li
+                        key={course.id}
+                     ><Link style={{ textDecoration: "none", fontSize: "16px", color: "#5c49ff" }} to={`/courses/${course.id}`}>{course.id}. {course.title}</Link></li>)
+                  }
+               </ol>
             </Col>
          </Row>
 
