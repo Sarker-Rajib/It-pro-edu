@@ -8,7 +8,7 @@ const Courses = () => {
    return (
       <Container className="pt-3">
          <h4>Courses We Provide -</h4>
-         <Row>
+         <Row className="gy-3">
             <Col lg={9}>
                <Row className="gy-3">
                   {

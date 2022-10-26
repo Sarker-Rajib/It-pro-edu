@@ -11,7 +11,7 @@ const Home = () => {
 
    return (
       <>
-         <div style={{minHeight: '92vh'}} className="home d-flex align-items-center justify-content-center">
+         <div style={{ minHeight: '92vh' }} className="home d-flex align-items-center justify-content-center">
             <Container>
                <div className="wrapper p-3 m-3">
                   <Row className='align-items-center'>
@@ -40,7 +40,7 @@ const Home = () => {
                <Col>
                   <Row className="gy-3">
                      {
-                        courses.map((course) => <Course
+                        courses.map(course => <Course
                            key={course.id}
                            course={course}
                         ></Course>)

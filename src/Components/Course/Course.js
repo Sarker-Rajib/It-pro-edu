@@ -10,7 +10,7 @@ const Course = ({ course }) => {
          <div className="course-card border rounded p-3">
             <img src={image_url} alt={title} className="img-fluid" />
             <h5 className="pt-3">{title}</h5>
-            <p>{description.length > 100 ? description.slice(0, 100) + ' ...' : description}</p>
+            <p>{description.length > 120 ? description.slice(0, 120) + ' ...' : description}</p>
             <Link to={`/courses/${id}`}>
                <Button className="btn btn-primary">More About this course</Button>
             </Link>

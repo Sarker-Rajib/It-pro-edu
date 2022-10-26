@@ -14,7 +14,7 @@ const Header = () => {
    const [mode, setMode] = useState(true);
    const { user, logOut } = useContext(AuthContext);
 
-   console.log(user);
+   // console.log(user);
 
    const toogleTheme = () => {
       if (theme === "light-theme") {
@@ -47,7 +47,7 @@ const Header = () => {
                      mode ? <FaMoon /> : <FaSun />
                   }
                </Button>
-               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+               <Navbar.Toggle aria-controls="responsive-navbar-nav" className="border border-success" />
                <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav className="ms-auto">
                      <Button onClick={toogleTheme} className="p-0 px-2 me-2 d-none d-lg-inline-block">
@@ -64,12 +64,14 @@ const Header = () => {
                            <>
                               <Link onClick={logOut} to="/home">Log-out</Link>
 
-                              <Image
-                                 title={user?.name}
-                                 src={user.photoURL} alt={user.name}
-                                 className="square bg-primary rounded-circle"
-                                 style={{ width: "35px", height: "35px", marginLeft: "5px" }}
-                              />
+                              <Link to="/profile">
+                                 <Image
+                                    title={user?.displayName}
+                                    src={user.photoURL} alt={user.displayName}
+                                    className="square bg-primary rounded-circle"
+                                    style={{ width: "35px", height: "35px", marginLeft: "5px" }}
+                                 />
+                              </Link>
                            </>
                            :
                            <Link to="login">Login</Link>

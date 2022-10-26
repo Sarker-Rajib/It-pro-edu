@@ -2,14 +2,19 @@ import React, { useContext, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../../Contexts/Authentication/AuthProvider';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
    const [accepted, setAccepted] = useState(true);
    const [error, setError] = useState('');
-   const { login , setLoading} = useContext(AuthContext);
+   const { login, setLoading, providerLogin } = useContext(AuthContext);
+
+   const navigate = useNavigate();
+   const location = useLocation();
+   const from = location.state?.from?.pathname || '/';
 
    const handleCheck = (e) => {
       setAccepted(!e.target.checked)
@@ -27,6 +32,7 @@ const Login = () => {
             console.log(user);
             form.reset();
             setError('');
+            navigate(from, { replace: true });
          })
          .catch((error) => {
             console.error(error);
@@ -34,6 +40,33 @@ const Login = () => {
          })
          .finally(() => {
             setLoading(false);
+         })
+   }
+
+   // google sign in
+   const googleProvider = new GoogleAuthProvider();
+   const handleGoogleSignIn = () => {
+      providerLogin(googleProvider)
+         .then(result => {
+            const user = result.user;
+            console.log(user);
+            navigate(from, { replace: true });
+         })
+         .catch(error => {
+            console.error(error);
+         })
+   }
+
+   const githubProvider = new GithubAuthProvider();
+   const handleGithubSignIn = () => {
+      providerLogin(githubProvider)
+         .then(result => {
+            const user = result.user;
+            console.log(user);
+            navigate(from, { replace: true });
+         })
+         .catch(error => {
+            console.error(error);
          })
    }
 
@@ -62,12 +95,12 @@ const Login = () => {
                   <div className="mt-3">
                      <div className="row gy-2">
                         <div className="col-lg-6">
-                           <Button className="w-100" variant="primary" type="submit">
+                           <Button onClick={handleGoogleSignIn} className="w-100" variant="primary" type="submit">
                               <FaGoogle className='text-warning' /> Google Login
                            </Button>
                         </div>
                         <div className="col-lg-6">
-                           <Button className="w-100" variant="primary" type="submit" >
+                           <Button onClick={handleGithubSignIn} className="w-100" variant="primary" type="submit" >
                               <FaGithub /> github Login
                            </Button>
                         </div>
