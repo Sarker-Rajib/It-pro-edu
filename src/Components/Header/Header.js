@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { Image } from 'react-bootstrap';
 import { FaSun, FaMoon } from 'react-icons/fa';
 import { AuthContext } from '../../Contexts/Authentication/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Header = () => {
    const [theme, setTheme] = useState("light-theme");
@@ -30,6 +31,10 @@ const Header = () => {
       document.body.className = theme;
    }, [theme]);
 
+   const handleLogOut = () => {
+      logOut();
+      toast.warning(`${user?.displayName} logged out`)
+   }
 
    return (
       <header className="bg-nav sticky-top">
@@ -44,7 +49,7 @@ const Header = () => {
 
                <button onClick={toogleTheme} className="d-inline-block d-lg-none toggle-button">
                   {
-                     mode ? <FaMoon className="text-white"/> : <FaSun />
+                     mode ? <FaMoon className="text-white" /> : <FaSun />
                   }
                </button>
                <Navbar.Toggle aria-controls="responsive-navbar-nav" className="border border-success" />
@@ -52,7 +57,7 @@ const Header = () => {
                   <Nav className="ms-auto">
                      <button onClick={toogleTheme} className="d-none d-lg-inline-block toggle-button">
                         {
-                           mode ? <FaMoon className="text-white"/> : <FaSun />
+                           mode ? <FaMoon className="text-white" /> : <FaSun />
                         }
                      </button>
                      <Link to="/home">Home</Link>
@@ -62,7 +67,7 @@ const Header = () => {
                      {
                         user?.photoURL ?
                            <>
-                              <Link onClick={logOut} to="/home">Log-out</Link>
+                              <Link onClick={handleLogOut} to="/home">Log-out</Link>
 
                               <Link to="/profile">
                                  <Image

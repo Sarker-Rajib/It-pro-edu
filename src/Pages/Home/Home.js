@@ -36,17 +36,14 @@ const Home = () => {
 
          <Container className="pt-5">
             <h4 className="pb-3">Courses We Provide -</h4>
-            <Row>
-               <Col>
-                  <Row className="gy-3">
-                     {
-                        courses.map(course => <Course
-                           key={course.id}
-                           course={course}
-                        ></Course>)
-                     }
-                  </Row>
-               </Col>
+
+            <Row className="gy-3">
+               {
+                  courses.map(course => <Course
+                     key={course.id}
+                     course={course}
+                  ></Course>)
+               }
             </Row>
 
          </Container>

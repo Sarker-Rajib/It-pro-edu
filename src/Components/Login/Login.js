@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../../Contexts/Authentication/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { toast } from 'react-toastify';
 
 const Login = () => {
    const [accepted, setAccepted] = useState(true);
@@ -33,6 +34,7 @@ const Login = () => {
             form.reset();
             setError('');
             navigate(from, { replace: true });
+            toast.success('Successfully Logged In')
          })
          .catch((error) => {
             console.error(error);
@@ -51,6 +53,7 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             navigate(from, { replace: true });
+            toast.info('Google Login successful')
          })
          .catch(error => {
             console.error(error);
@@ -64,6 +67,7 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             navigate(from, { replace: true });
+            toast('Github Login successful')
          })
          .catch(error => {
             console.error(error);
