@@ -1,10 +1,20 @@
 import React from 'react';
 import { Button, Col, Image, Row } from 'react-bootstrap';
+import { FaFilePdf } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
+import Pdf from "react-to-pdf";
+
+const ref = React.createRef();
+
 
 const CourseDetails = () => {
    const course = useLoaderData();
    const { image_url, title, description, id } = course;
+
+   const options = {
+      orientation: 'landscape',
+   };
+
    return (
       <div className="container pt-3">
          <div className="course-card shadow rounded border border-rounded p-3">
@@ -13,10 +23,12 @@ const CourseDetails = () => {
                   <h6>Course Details :</h6>
                </div>
                <div>
-                  <Button variant="success">Download Pdf</Button>
+                  <Pdf targetRef={ref} filename={`course_${title}`} options={options} x={.5} y={.5} scale={1.0}>
+                     {({ toPdf }) => <Button onClick={toPdf}>Download <FaFilePdf /></Button>}
+                  </Pdf>
                </div>
             </div>
-            <Row>
+            <Row ref={ref}>
                <h4>Course Title : {title}</h4>
                <Col md={6}>
                   <p>{description}</p>
