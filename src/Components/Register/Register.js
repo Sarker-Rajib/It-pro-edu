@@ -3,10 +3,11 @@ import { Col, Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../Contexts/Authentication/AuthProvider';
 
 const Register = () => {
-   const { createUser, updateUserProfile } = useContext(AuthContext);
+   const { createUser, updateUserProfile, verifyUserEmail } = useContext(AuthContext);
    const [accepted, setAccepted] = useState(true);
    const [error, setError] = useState('');
 
@@ -25,6 +26,13 @@ const Register = () => {
          .catch(error => console.error(error))
    }
 
+   // email verification handler
+   const handleVerification = () => {
+      verifyUserEmail()
+      .then(() => { })
+      .catch(error => console.error(error))
+   }
+
    const handleSubmit = (e) => {
       e.preventDefault();
       const form = e.target;
@@ -41,6 +49,9 @@ const Register = () => {
             form.reset();
             setError('');
             handleupdateUserProfile(name, photoURL);
+            handleVerification();
+            toast.success('Registration Successfully done')
+            toast.warning('please verify email and Login');
          })
          .catch((error) => {
             console.error(error);
