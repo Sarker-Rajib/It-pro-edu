@@ -20,14 +20,14 @@ export const routes = createBrowserRouter([
          {
             path: '/',
             loader: async () => {
-               return fetch('http://localhost:5000/courses')
+               return fetch('https://assignment-10-server-sigma.vercel.app/courses')
             },
             element: <Home></Home>
          },
          {
             path: '/home',
             loader: async () => {
-               return fetch('http://localhost:5000/courses')
+               return fetch('https://assignment-10-server-sigma.vercel.app/courses')
             },
             element: <Home></Home>
 
@@ -36,13 +36,13 @@ export const routes = createBrowserRouter([
             path: '/courses',
             element: <Courses></Courses>,
             loader: async () => {
-               return fetch('http://localhost:5000/courses')
+               return fetch('https://assignment-10-server-sigma.vercel.app/courses')
             },
          },
          {
             path: '/courses/:courseId',
             loader: async ({ params }) => {
-               return fetch(`http://localhost:5000/courses/${params.courseId}`)
+               return fetch(`https://assignment-10-server-sigma.vercel.app/courses/${params.courseId}`)
             },
             element: <CourseDetails></CourseDetails>
          },
@@ -57,7 +57,7 @@ export const routes = createBrowserRouter([
          {
             path: '/checkout/:id',
             loader: async ({ params }) => {
-               return fetch(`http://localhost:5000/courses/${params.id}`)
+               return fetch(`https://assignment-10-server-sigma.vercel.app/courses/${params.id}`)
             },
             element:
                <PrivateRoute>
