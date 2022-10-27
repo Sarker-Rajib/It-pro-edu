@@ -1,6 +1,7 @@
-### Getting Started with Create React App
-
+#### Getting Started with Create React App
 [ server code link - https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-Sarker-Rajib ]
+
+#### Live Link : https://assignment-10-bfb97.web.app/home
 
 ## About the web
 * IT ProEdu is professional learning website
