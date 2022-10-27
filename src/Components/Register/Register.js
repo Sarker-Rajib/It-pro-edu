@@ -50,8 +50,8 @@ const Register = () => {
             setError('');
             handleupdateUserProfile(name, photoURL);
             handleVerification();
-            toast.success('Registration Successfully done')
-            toast.warning('please verify email and Login');
+            toast.success('Registration Successfully done');
+            toast.warning('please verify email');
          })
          .catch((error) => {
             console.error(error);

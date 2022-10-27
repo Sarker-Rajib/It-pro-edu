@@ -51,7 +51,7 @@ const AuthProvider = ({ children }) => {
       return () => {
          unsubscribe();
       }
-   }, []);
+   }, [user]);
 
    const logOut = () => {
       setLoading(true);
