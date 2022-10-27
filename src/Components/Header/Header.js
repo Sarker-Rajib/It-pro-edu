@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import webMaster from './../../assets/Images/webMaster.png';
 import '../Header/Header.css';
 import { Link } from 'react-router-dom';
-import { Button, Image } from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
 import { FaSun, FaMoon } from 'react-icons/fa';
 import { AuthContext } from '../../Contexts/Authentication/AuthProvider';
 
@@ -42,19 +42,19 @@ const Header = () => {
                   alt="First slide"
                />
 
-               <Button onClick={toogleTheme} className="p-1 px-2 me-2 d-inline-block d-lg-none">
+               <button onClick={toogleTheme} className="d-inline-block d-lg-none toggle-button">
                   {
-                     mode ? <FaMoon /> : <FaSun />
+                     mode ? <FaMoon className="text-white"/> : <FaSun />
                   }
-               </Button>
+               </button>
                <Navbar.Toggle aria-controls="responsive-navbar-nav" className="border border-success" />
                <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav className="ms-auto">
-                     <Button onClick={toogleTheme} className="p-0 px-2 me-2 d-none d-lg-inline-block">
+                     <button onClick={toogleTheme} className="d-none d-lg-inline-block toggle-button">
                         {
-                           mode ? <FaMoon /> : <FaSun />
+                           mode ? <FaMoon className="text-white"/> : <FaSun />
                         }
-                     </Button>
+                     </button>
                      <Link to="/home">Home</Link>
                      <Link to="/courses">Courses</Link>
                      <Link to="/faq">FAQ</Link>

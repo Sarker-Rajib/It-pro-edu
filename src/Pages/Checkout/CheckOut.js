@@ -19,7 +19,7 @@ const CheckOut = () => {
                </Col>
             </Row>
             <div className="text-center">
-               <Button className="px-5">Checkout</Button>
+               <Button className="btn custom-button px-5">Checkout</Button>
             </div>
          </div>
       </div>

@@ -8,3 +8,18 @@
       max-width: 180px;
    }
 }
+
+#responsive-navbar-nav a {
+   color: var(--color-navlink);
+   text-decoration: none;
+   margin: 6px;
+   font-size: 18px;
+}
+
+.toggle-button {
+   background: var(--toggle-button-bg);
+   max-height: 35px;
+   margin-right: 10px;
+   border-radius: 7px;
+   border: 1px solid var(--button-text-color);
+}

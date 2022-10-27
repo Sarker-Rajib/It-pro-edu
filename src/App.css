@@ -3,11 +3,12 @@
   --heading-color: #000;
   --nav-bg: #eeeeeed5;
   --para-color: #000;
-  --toggle-button-bg: #416570;
+  --toggle-button-bg: #7d35b8a4;
   --button-text-color: #fff;
   --card-bg: #4e75444b;
   --color-navlink: #7700ff;
   --wrapper-bg: #ffd152d5;
+  --button-bg: #8844af;
 }
 
 .dark-theme {
@@ -20,6 +21,7 @@
   --card-bg: #dcecd84f;
   --color-navlink: #b782fc;
   --wrapper-bg: #2747838c;
+  --button-bg: #58a74d;
 }
 
 h1,
@@ -38,13 +40,6 @@ label {
 
 .bg-nav {
   background: var(--nav-bg);
-}
-
-#responsive-navbar-nav a {
-  color: var(--color-navlink);
-  text-decoration: none;
-  margin: 6px;
-  font-size: 18px;
 }
 
 .card-bg {

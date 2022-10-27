@@ -24,7 +24,7 @@ const CourseDetails = () => {
                </div>
                <div>
                   <Pdf targetRef={ref} filename={`course_${title}`} options={options} x={.5} y={.5} scale={1.0}>
-                     {({ toPdf }) => <Button onClick={toPdf}>Download <FaFilePdf /></Button>}
+                     {({ toPdf }) => <Button className="custom-button" onClick={toPdf}>Download <FaFilePdf /></Button>}
                   </Pdf>
                </div>
             </div>
@@ -36,7 +36,7 @@ const CourseDetails = () => {
                <Col md={6}>
                   <Image src={image_url} alt={title} className="img-fluid w-100 pb-3" />
                </Col>
-               <Link to={`/checkout/${id}`}><Button>Get Premium Access</Button></Link>
+               <Link to={`/checkout/${id}`}><Button className="btn custom-button">Get Premium Access</Button></Link>
             </Row>
          </div>
       </div>
