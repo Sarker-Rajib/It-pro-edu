@@ -85,8 +85,9 @@ const Login = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control name="password" type="password" placeholder="Password" />
                      </Form.Group>
+                     
                      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check onClick={handleCheck} type="checkbox" label="Check to confirm" />
+                        <Form.Check onClick={handleCheck} type="checkbox" label="Confirm Login" />
                      </Form.Group>
                      <Button variant="primary" type="submit" disabled={accepted}>
                         Login

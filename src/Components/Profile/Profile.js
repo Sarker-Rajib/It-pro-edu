@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Col, Image, Row } from 'react-bootstrap';
+import { Col, Form, Image, Row } from 'react-bootstrap';
 import { AuthContext } from '../../Contexts/Authentication/AuthProvider';
 
 const Profile = () => {
@@ -14,10 +14,28 @@ const Profile = () => {
                <>
                   <Row className="align-items-center">
                      <Col lg={6}>
-                        <h3>User Profile Details</h3>
-                        <p>User id : {uid}</p>
-                        <h4>Name : {displayName}</h4>
-                        <p>email: {email ? email : <span className="text-warning">No email</span>}</p>
+                        <h3>User Profile</h3>
+
+                        <Form.Group className="mb-3" controlId="A">
+                           <Form.Label>Name</Form.Label>
+                           <Form.Control type="text" placeholder={displayName} />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="B">
+                           <Form.Label>photoURL</Form.Label>
+                           <Form.Control type="text" placeholder={photoURL} />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="C">
+                           <Form.Label>User id</Form.Label>
+                           <Form.Control type="text" placeholder={uid} disabled />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="D">
+                           <Form.Label>Email</Form.Label>
+                           <Form.Control type="text" placeholder={email ? email : <span className="text-warning">No email found</span>} disabled />
+                        </Form.Group>
+
                      </Col>
 
                      <Col lg={6}>
